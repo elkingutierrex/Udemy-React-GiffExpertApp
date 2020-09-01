@@ -1,7 +1,13 @@
-import React from 'react'
-import PropTypes from 'prop-types'
+import React, { useState, useEffect } from 'react'
+// import PropTypes from 'prop-types'
 
 function GifGrid( { category } ) {
+
+    const [count, setCount] = useState(0);
+
+    useEffect(() => {
+      getGifs();
+    }, [])
 
     const getGifs = async() => {
         const url = 'https://api.giphy.com/v1/gifs/search?api_key=YUE15hH5yDtjaEXrZOU5oei74qDiJijG&q=Rick+and+morty&limit=10'
@@ -20,18 +26,19 @@ function GifGrid( { category } ) {
 
     }
 
-    getGifs();
-
+    
     return (
         <>
-            <h3> { category } </h3>
+            <h3> { category } { count } </h3>
+
+            <button onClick={ () => setCount( count + 1 ) }> Add </button>
         </>
     )
 }
 
-GifGrid.propTypes = {
+// GifGrid.propTypes = {
 
-}
+// }
 
 export default GifGrid
 
