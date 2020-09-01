@@ -1,10 +1,11 @@
 import React, { useState } from 'react'
 import { AddCategory } from './components/AddCategory'
+import GifGrid from './components/GifGrid'
 
 export const GifExpertApp = () => {
 
     // const categories = ['one punch', 'Samuray x', 'Dragon Ball']
-    const [categories, setCategories] = useState( ['one punch', 'Samuray x', 'Dragon Ball' ] )
+    const [categories, setCategories] = useState( ['Dragon Ball'] )
 
     // const handleAdd = () => {
     //     // setCategories( [...categories, 'otra cosa']);    // Opcion 1
@@ -23,9 +24,16 @@ export const GifExpertApp = () => {
             {/* <button onClick={ handleAdd } > Add </button> */}
         
             <ol>
-                { categories.map (category => {
-                    return <li key={ category }>{ category }</li>
-                }) }                
+                { 
+                    categories.map (category => 
+                        // <li key={ category }> { category }</li>
+                        <GifGrid 
+                            category={ category }
+                            key={ category }
+                         />
+
+                    )
+                }                
             </ol>
             
         </>
