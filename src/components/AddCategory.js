@@ -14,7 +14,7 @@ export const AddCategory = ( { setCategories } ) => {
         console.log('Submit');
 
         if ( inputValue.trim().length > 2 ){
-            setCategories(cats => [...cats, inputValue ]);      // Opcion 2
+            setCategories(cats => [ inputValue, ...cats ]);      // Opcion 2
             setInputValue('')
         }
         
