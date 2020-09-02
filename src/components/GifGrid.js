@@ -1,17 +1,17 @@
 import React from 'react'
 import { useFechGifs } from '../hooks/useFechGifs'
-// import { GifGridItem } from './GifGridItem'
-// import { getGifs } from '../helpers/getGifs';
+import { GifGridItem } from './GifGridItem'
+
 
 
 // import PropTypes from 'prop-types'
 
 export const  GifGrid = ( { category } ) => {
 
-    // const [images, setImages] = useState([]);
-    const { data, loading } = useFechGifs();
 
-    console.log( data );
+    const { data:images, loading } = useFechGifs( category );
+
+    // console.log( images );
     console.log( loading );
 
 
@@ -26,10 +26,11 @@ export const  GifGrid = ( { category } ) => {
     
     return (
         <>
-            <h3> { category } </h3>
+            <h3> { category } </h3>  
 
-            { loading ? 'Cargando...' : 'Data cargada' }
-            {/* <div className="card-grid">
+            { loading && <p>Loading...</p>}
+
+            <div className="card-grid">
             
                 { 
                     images.map( img => ( 
@@ -39,7 +40,7 @@ export const  GifGrid = ( { category } ) => {
                     ) )
                 }
             
-            </div>  */}
+            </div> 
         </>
         
     )
